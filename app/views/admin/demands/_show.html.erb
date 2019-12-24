@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <div class="modal-title" id="myModalLabel" style="margin-left: -180px;">
+    <h2 style="font-weight: bold;"> Nhu cầu</h2>
+    <h4><%= @demand.user.name %></h4>
+  </div>
+</div>
+<div class="modal-body">
+  <td>Người đăng ký: <%= @demand.user.name %></td>
+  <hr>
+  <td>Mỗn học: <%= @demand.subject %></td>
+  <hr>
+  <td>Trình độ: <%= @demand.level %></td>
+  <hr>
+  <td>Số điện thoại:<%= @demand.user.phone %></td>
+  <hr>
+  <td>Số lượng học sinh: <%= @demand.amount_student %></td>
+  <hr>
+  <td>Phí nhận lớp: <%= @demand.fee %></td>
+  <hr>
+  <td>Thời lượng học 1 buổi: <%= @demand.time_per_session%>h/buổi</td>
+  <hr>
+  <td>Ghi chú: <%= @demand.note %></td>
+
+</div>

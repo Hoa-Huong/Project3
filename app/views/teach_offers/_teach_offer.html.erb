@@ -1,0 +1,53 @@
+<div class="demand_item">
+  <h1>
+    <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 24px;color: #03ad03;margin-right: 2px;" title="Đã xác thực thông tin">
+    </i>
+    Tìm gia sư dạy <%= teach_offer.demand.subject %> <%= teach_offer.demand.level %>  <%= teach_offer.demand.address %>
+  </h1>
+
+  <p class="create inline" style="padding-right: 20px;">
+    <i class="fa fa-calendar"></i><%= teach_offer.demand.created_at.strftime("%d-%m-%Y")%></p>
+    <div class="row" style="padding:15px 0;border-top:1px solid #e7e7e7;">
+      <div class="col-md-4 col-sm-4">
+        <p class="no-padding">
+          <i class="fa fa-bookmark"></i> Trạng thái: <span style="font-weight: bold; color: #ff961e; text-transform: uppercase;">
+            <% if teach_offer.pending? %>
+            ĐANG CHỜ XỬ LÝ
+            <% elsif teach_offer.approved? %>
+            ĐÃ PHÊ DUYỆT
+            <% else teach_offer.unapproved? %>
+            KHÔNG ĐƯỢC DUYỆT
+            <% end %>
+          </span>
+        </p>
+        <p class="no-padding"><i class="fa fa-book"></i>  Môn học:&nbsp;<%= teach_offer.demand.subject %>
+        </p>
+        <p class="no-padding">
+          <a href="#class-map" title="Xem bản đồ vị trí lớp">
+            <i class="fa fa-map-marker"></i>
+            Địa điểm: <%= teach_offer.demand.address %>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <p><i class="fa fa-user-o"></i>
+          Số học viên : <%= teach_offer.demand.amount_student %></p>
+          <p><i class="fa fa-book"></i>
+           Thời lượng: <%= teach_offer.demand.time_per_session %>/buổi
+         </p>
+         <p>
+          <i class="fa fa-money"></i> Học phí 1 buổi: <span class="class-tutor-fee"><%= teach_offer.demand.fee %> vnđ</span>
+        </p>
+
+      </div>
+
+      <div class="col-md-4 col-sm-4">
+        <div class="header-study-group-right">
+          <p>Yêu cầu: <%= teach_offer.demand.note %></p>
+          <p>Phí nhận lớp:<span class="connection-fee">300,000 vnđ</span></p>
+
+          (<strong style="color: #FF961E">Trả phí sau </strong> <a href="/chinh-sach-phi" target="_blank"><i class="fa fa-exclamation-circle fa-first"></i></a>)
+        </div>
+      </div>
+    </div>
+  </div>

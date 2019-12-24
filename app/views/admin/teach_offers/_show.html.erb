@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel" style="font-size: 16px; font-weight: bold;
+">Thông tin nhu cầu</h4>
+</div>
+<div class="modal-body">
+  <aside>
+    <td>Người đăng ký: <%= @teach_offer.demand.user.name %></td>
+    <hr>
+    <td>Mỗn học: <%= @teach_offer.demand.subject %></td>
+    <hr>
+    <td>Trình độ: <%= @teach_offer.demand.level %></td>
+    <hr>
+    <td>Số điện thoại:<%= @teach_offer.demand.user.phone %></td>
+    <hr>
+    <td>Số lượng học sinh: <%= @teach_offer.demand.amount_student %></td>
+    <hr>
+    <td>Phí nhận lớp: <%= @teach_offer.demand.fee %></td>
+    <hr>
+    <td>Thời lượng học 1 buổi: <%= @teach_offer.demand.time_per_session%>h/buổi</td>
+    <hr>
+    <td>Ghi chú: <%= @teach_offer.demand.note %></td>
+  </aside>
+  <hr>
+
+  <aside>
+    <h4 style="font-size: 16px; font-weight: bold; text-align: center;">
+      Thông tin người đề nghị dạy
+    </h4><hr>
+    <b>Họ tên: </b><%= @teach_offer.user.name %>
+    <hr>
+    <b>Email: </b><%= @teach_offer.user.email %>
+    <hr>
+    <b>Số điện thoại: </b><%= @teach_offer.user.phone %>
+    <hr>
+    <b>Ngày sinh: </b><%= @teach_offer.user.birth %>
+    <hr>
+    <b>Nghề nghiệp: </b><%= @teach_offer.user.level %>
+    <hr>
+    <b>Địa chỉ: </b><%= @teach_offer.user.address %>
+  </aside>
+</div>

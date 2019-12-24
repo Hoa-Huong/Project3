@@ -1,0 +1,19 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.birth %></td>
+  <td><%= user.email %></td>
+  <td><%= user.phone %></td>
+  <td><%= user.level %></td>
+  <td>
+    <span>
+      <%= link_to admin_user_path(user), {remote: true, data:{toggle: "modal"}, data: {target: "#modal-window"}, class: "book-btn"} do %>
+      <i class="fa fa-eye"></i>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to admin_user_path(user), method: :delete, data: { confirm: "Bạn có chắc muốn xóa người dùng này?" }, class: "book-btn" do %>
+      <i class="fa fa-trash"></i>
+      <% end %>
+    </span>
+  </td>
+</tr>

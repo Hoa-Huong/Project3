@@ -1,0 +1,26 @@
+<% provide :title, "Quản lý đề nghị dạy" %>
+<h2>Quản lý đề nghị dạy</h2>
+<div class="container-user">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Người đề nghị dạy</th>
+        <th scope="col">Số điện thoại</th>
+        <th scope="col">Người đăng nhu cầu</th>
+        <th scope="col">Số điện thoại</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @teach_offers %>
+    </tbody>
+  </table>
+</div>
+<div id="modal-window" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>

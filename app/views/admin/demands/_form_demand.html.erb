@@ -1,0 +1,23 @@
+<%= form_for [:admin, @demand] do |f| %>
+  <%= f.label "Môn học (Subject)", class: "required" %>
+  <%= f.text_field :subject, class: "form-control", placeholder: "Toán" %>
+
+  <%= f.label "Trình độ (Level)", class: "required" %>
+  <%= f.text_field :level, class: "form-control", placeholder: "Lớp 5" %>
+
+  <%= f.label "Số lượng người học (Amount student)", class: "required" %>
+  <%= f.text_field :amount_student, class: "form-control", placeholder: "1, 2, ..." %>
+
+  <%= f.label "Thời lượng học (Time per session)", class: "required" %>
+  <%= f.text_field :time_per_session, class: "form-control", placeholder: "2h/buổi"  %>
+
+  <%= f.label "Học phí (Fee)", class: "required" %>
+  <%= f.text_field :fee, class: "form-control", placeholder: "200.000/buổi" %>
+
+  <%= f.label "Địa chỉ:", class: "required" %>
+  <%= f.text_field :address, class: "form-control", placeholder: "Đường Minh Khai, Hoàng Mai, Hà Nội" %>
+
+  <%= f.label "Ghi chú (Note)", class: "required" %>
+  <%= f.text_area :note, class: "form-control", placeholder: "Cần gia sư nữ, kinh nghiệm, học sinh mất tập trung,..." %>
+  <%= f.submit "Đăng ký nhu cầu", class: "btn btn-primary" %>
+<% end %>

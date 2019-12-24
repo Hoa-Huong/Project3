@@ -1,0 +1,24 @@
+<tr>
+  <td><%= demand.user.name %></td>
+  <td><%= demand.subject %></td>
+  <td><%= demand.level %></td>
+  <td><%= demand.user.phone %></td>
+  <td><%= demand.status %></td>
+  <td>
+    <span>
+      <%= link_to admin_demand_path(demand), {remote: true, data:{toggle: "modal"}, data: {target: "#modal-window"}, class: "book-btn"} do %>
+      <i class="fa fa-eye"></i>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to edit_admin_demand_path(demand), {remote: true, data:{toggle: "modal"}, data: {target: "#modal-window"}, class: "book-btn"} do %>
+      <i class="fa fa-edit"></i>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to admin_demand_path(demand), method: :delete, data: { confirm: "Bạn có chắc muốn xóa nhu cầu này?" }, class: "book-btn" do %>
+      <i class="fa fa-trash"></i>
+      <% end %>
+    </span>
+  </td>
+</tr>

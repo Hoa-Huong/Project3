@@ -1,0 +1,16 @@
+<% if @teach_offer.pending? %>
+    <%= link_to admin_teach_offer_path(@teach_offer, {status: "approved"}), class: "btn btn-success", method: :patch do %>
+      Phê duyệt
+    <% end %>
+    <%= link_to admin_teach_offer_path(@teach_offer, {status: "unapproved"}), class: "btn btn-danger", method: :patch do %>
+      Không phê duyệt
+    <% end %>
+  <% elsif @teach_offer.approved? %>
+    <%= link_to admin_teach_offer_path(@teach_offer, {status: "unapproved"}), class: "btn btn-danger", method: :patch do %>
+      Không phê duyệt
+    <% end %>
+  <% else %>
+    <%= link_to admin_teach_offer_path(@teach_offer, {status: "approved"}), class: "btn btn-success", method: :patch do %>
+      Phê duyệt
+    <% end %>
+  <% end %>
