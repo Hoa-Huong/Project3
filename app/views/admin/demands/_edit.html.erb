@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <div class="modal-title" id="myModalLabel" style="margin-left: -180px;">
+    <h2 style="font-weight: bold;"> Nhu cầu</h2>
+    <h4><%= @demand.user.name %></h4>
+  </div>
+</div>
+<div class="modal-body">
+  <%= render "form_demand" %>
+</div>

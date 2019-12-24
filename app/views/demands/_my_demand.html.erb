@@ -1,0 +1,56 @@
+<div class="container">
+<div class="demand_item">
+  <h1>
+    <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 24px;color: #03ad03;margin-right: 2px;" title="Đã xác thực thông tin">
+    </i>
+    Tìm gia sư dạy <%= my_demand.subject %> <%= my_demand.level %>  <%= my_demand.address %>
+  </h1>
+
+  <p class="create inline" style="padding-right: 20px;">
+    <i class="fa fa-calendar"></i><%= my_demand.created_at.strftime("%d-%m-%Y")%></p>
+    <div class="row" style="padding:15px 0;border-top:1px solid #e7e7e7;">
+      <div class="col-md-4 col-sm-4">
+        <p class="no-padding">
+          <i class="fa fa-bookmark"></i> Trạng thái: <span style="font-weight: bold; color: #ff961e; text-transform: uppercase;">
+            <% if my_demand.pending? %>
+            ĐANG TÌM GIA SƯ
+            <% else my_demand.approved? %>
+            ĐÃ TÌM THẤY GIA SƯ
+            <% end %>
+          </span>
+        </p>
+        <p class="no-padding"><i class="fa fa-book"></i>  Môn học:&nbsp;<%= my_demand.subject %>
+        </p>
+        <p class="no-padding">
+          <a href="#class-map" title="Xem bản đồ vị trí lớp">
+            <i class="fa fa-map-marker"></i>
+            <%= my_demand.address %>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <p><i class="fa fa-user-o"></i>
+          Số học viên : <%= my_demand.amount_student %></p>
+          <p><i class="fa fa-book"></i>
+           Thời lượng: <%= my_demand.time_per_session %>h/buổi
+         </p>
+         <p>
+          <i class="fa fa-money"></i> Học phí 1 buổi: <span class="class-tutor-fee"><%= my_demand.fee %> vnđ</span>
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-4">
+        <p>Yêu cầu: <%= my_demand.note %></p>
+        <div class="header-study-group-right">
+          <p>Phí nhận lớp:<span class="connection-fee">300,000 vnđ</span></p>
+
+          (<strong style="color: #FF961E">Trả phí sau </strong> <a href="/chinh-sach-phi" target="_blank"><i class="fa fa-exclamation-circle fa-first"></i></a>)
+
+          <div class="class-actions">
+            <%= button_to "Đề nghị dạy", teach_offers_path(demand_id: demand.id), class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<%= form_for @user do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= f.label "Họ tên: ", class: "required" %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label "Email:", class: "required" %>
+  <%= f.email_field :email, class: "form-control" %>
+
+  <%= f.label "Ngày sinh: ", class: "required" %>
+  <%= f.date_field :birth, class: "form-control" %>
+
+  <%= f.label "Địa chỉ: ", class: "required" %>
+  <%= f.text_field :address, class: "form-control" %>
+
+  <%= f.label "Số điện thoại:", class: "required" %>
+  <%= f.text_field :phone, class: "form-control" %>
+
+  <%= f.label "Trình độ hiện tại: ", class: "required" %>
+  <%= f.text_field :level, class: "form-control" %>
+
+  <%= f.label "Mật khẩu:", class: "required" %>
+  <%= f.password_field :password, class: "form-control" %>
+
+  <%= f.label "Nhập lại mật khẩu:", class: "required" %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+
+  <%= f.submit "Sign Up", class: "btn btn-primary" %>
+<% end %>

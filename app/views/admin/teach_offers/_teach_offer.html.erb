@@ -1,0 +1,27 @@
+<tr>
+  <td><%= teach_offer.user.name %></td>
+  <td><%= teach_offer.user.phone %></td>
+  <td><%= teach_offer.demand.user.name %></td>
+  <td><%= teach_offer.demand.user.phone %></td>
+  <td style="width: 20rem; text-align: center;">
+    <% if teach_offer.pending? %>
+      <%= link_to admin_teach_offer_path(teach_offer, {status: "approved"}), class: "btn btn-success", method: :patch do %>
+        Phê duyệt
+      <% end %>
+      <%= link_to admin_teach_offer_path(teach_offer, {status: "unapproved"}), class: "btn btn-danger", method: :patch do %>
+        Không phê duyệt
+      <% end %>
+    <% elsif teach_offer.approved? %>
+      <%= image_tag ("approved.png") , class: "approved"%>
+    <% else %>
+      <%= image_tag ("Cancel.png") , class: "approved"%>
+    <% end %>
+  </td>
+  <td>
+    <span>
+      <%= link_to admin_teach_offer_path(teach_offer), {remote: true, data:{toggle: "modal"}, data: {target: "#modal-window"}, class: "book-btn"} do %>
+      <i class="fa fa-eye"></i>
+      <% end %>
+    </span>
+  </td>
+</tr>

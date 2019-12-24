@@ -1,0 +1,17 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @user.name %>
+      </h1>
+      <h4>
+      Ngày sinh:  <%= @user.birth %><br>
+      Địa chỉ:  <%= @user.address %><br>
+      Email:  <%= @user.email %><br>
+      Số điện thoại:  <%= @user.phone %><br>
+      Nghề nghiệp hiện tại: <%= @user.level %>
+      </h4>
+    </section>
+  </aside>
+</div>
