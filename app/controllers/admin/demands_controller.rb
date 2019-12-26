@@ -3,9 +3,9 @@ class Admin::DemandsController < AdminController
 
   def index
     @demands = if params[:search]
-      Demand.joins(:user).where('subject LIKE ? OR users.name LIKE ? OR users.phone LIKE ?', "%#{params[:search]}% ", "%#{params[:search]}%", "%#{params[:search]}%").order("created_at DESC").page(params[:page]).per 10
+      Demand.joins(:user).where('subject LIKE ? OR users.name LIKE ? OR users.phone LIKE ?', "%#{params[:search]}% ", "%#{params[:search]}%", "%#{params[:search]}%").order("created_at DESC").page(params[:page]).per 20
     else
-      Demand.order("created_at DESC").page(params[:page]).per 10
+      Demand.order("created_at DESC").page(params[:page]).per 20
     end
 
   end

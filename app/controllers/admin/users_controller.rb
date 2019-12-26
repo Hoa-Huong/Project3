@@ -5,7 +5,7 @@ class Admin::UsersController < AdminController
     @users = if params[:search]
       @users = User.where('name LIKE ? OR phone LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").order("created_at DESC").page(params[:page]).per 20
     else
-      @users = User.order("created_at DESC").page(params[:page]).per 10
+      @users = User.order("created_at DESC").page(params[:page]).per 20
     end
   end
 

@@ -3,9 +3,9 @@ class Admin::TeachOffersController < AdminController
 
   def index
     if params[:status].present?
-      @teach_offers = TeachOffer.order("created_at DESC").where(status: params[:status]).page(params[:page]).per 10
+      @teach_offers = TeachOffer.order("created_at DESC").where(status: params[:status]).page(params[:page]).per 20
     else
-      @teach_offers = TeachOffer.order("created_at DESC").page(params[:page]).per 10
+      @teach_offers = TeachOffer.order("created_at DESC").page(params[:page]).per 20
     end
   end
 
