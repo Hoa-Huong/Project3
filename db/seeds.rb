@@ -67,6 +67,7 @@ User.create!(name: "Admin",
   address = "Minh Khai #{n}"
   note = "Có kinh nghiệm, có phương pháp và kỹ năng"
   status = 0
+  status_admin = 1
   Demand.create!(user_id: user_id,
     subject: subject,
     level: level,
@@ -74,5 +75,5 @@ User.create!(name: "Admin",
     amount_student: amount_student,
     time_per_session: time_per_session,
     fee: fee,
-    note: note, status: status)
+    note: note, status: status, status_admin: status_admin)
 end

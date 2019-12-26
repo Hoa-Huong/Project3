@@ -23,6 +23,7 @@ gem "faker", "2.1.2"
 gem 'bcrypt', '3.1.13'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'kaminari'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

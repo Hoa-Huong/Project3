@@ -9,6 +9,7 @@ class CreateDemands < ActiveRecord::Migration[6.0]
       t.string :fee
       t.text :note
       t.integer :status, default: 0
+      t.integer :status_admin, default: 0
 
       t.timestamps
     end

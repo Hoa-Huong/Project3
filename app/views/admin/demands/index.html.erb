@@ -1,5 +1,17 @@
 <% provide :title, "Quản lý nhu cầu" %>
 <h2>Quản lý nhu cầu</h2>
+<div class="row">
+  <div class="col-sm-4 col-sm-push-8">
+    <%= form_tag(admin_demands_path, method: :get) do %>
+    <div class="col-sm-8">
+      <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2" %>
+    </div>
+    <div class="col-sm-4">
+      <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <div class="container-user">
   <table class="table table-bordered table-hover">
     <thead class="thead-dark">
@@ -18,6 +30,8 @@
       <%= render @demands %>
     </tbody>
   </table>
+  <%= paginate @demands%>
+
 </div>
 <div id="modal-window" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

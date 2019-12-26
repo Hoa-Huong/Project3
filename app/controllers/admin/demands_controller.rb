@@ -2,17 +2,20 @@ class Admin::DemandsController < AdminController
   before_action :find_demand, except: :index
 
   def index
-    @demands = Demand.all
+    @demands = if params[:search]
+      Demand.joins(:user).where('subject LIKE ? OR users.name LIKE ? OR users.phone LIKE ?', "%#{params[:search]}% ", "%#{params[:search]}%", "%#{params[:search]}%").order("created_at DESC").page(params[:page]).per 10
+    else
+      Demand.order("created_at DESC").page(params[:page]).per 10
+    end
+
   end
 
-  def show
+  def edit
     respond_to :js
   end
 
-  def edit; end
-
   def update
-    if @demand.update demand_params
+    if @demand.update! status_admin: params[:status_admin]
       flash[:success] = "Cập nhật thành công"
     else
       flash[:danger] = "Cập nhật thất bại"
@@ -40,6 +43,6 @@ class Admin::DemandsController < AdminController
   end
 
   def demand_params
-    params.require(:demand).permit(:user_id, :subject, :level, :amount_student, :time_per_session, :fee, :note, :address, :status)
+    params.require(:demand).permit(:user_id, :subject, :level, :amount_student, :time_per_session, :fee, :note, :address, :status, :status_admin)
   end
 end

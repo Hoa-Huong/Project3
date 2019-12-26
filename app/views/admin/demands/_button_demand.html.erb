@@ -1,0 +1,16 @@
+<% if @demand.pending? %>
+  <%= link_to admin_demand_path(@demand, {status_admin: "approved"}), class: "btn btn-success", method: :patch do %>
+    Phê duyệt
+  <% end %>
+  <%= link_to admin_demand_path(@demand, {status_admin: "unapproved"}), class: "btn btn-danger", method: :patch do %>
+    Không phê duyệt
+  <% end %>
+<% elsif @demand.approved? %>
+  <%= link_to admin_demand_path(@demand, {status_admin: "unapproved"}), class: "btn btn-danger", method: :patch do %>
+    Không phê duyệt
+  <% end %>
+<% else %>
+  <%= link_to admin_demand_path(@demand, {status_admin: "approved"}), class: "btn btn-success", method: :patch do %>
+    Phê duyệt
+  <% end %>
+<% end %>

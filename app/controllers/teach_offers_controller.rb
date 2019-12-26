@@ -1,7 +1,8 @@
 class TeachOffersController < ApplicationController
   before_action :load_demand, only: :create
+  before_action :logged_in_user
   def index
-    @teach_offers = current_user.teach_offers
+    @teach_offers = current_user.teach_offers.order("created_at DESC").page(params[:page]).per 10
   end
 
   def create
