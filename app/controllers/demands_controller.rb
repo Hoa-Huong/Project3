@@ -1,12 +1,16 @@
 class DemandsController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user, except: :index
   before_action :find_my_demand, only: %i(show destroy)
   def new
     @demand = Demand.new
   end
 
   def index
-    @demands = Demand.order("created_at DESC")
+    @demands = if params[:search]
+      Demand.where('address LIKE ? OR subject LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").order("created_at DESC").page(params[:page]).per 10
+    else
+      Demand.order("created_at DESC").page(params[:page]).per 10
+    end
   end
 
   def my_demand

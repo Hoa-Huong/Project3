@@ -3,13 +3,16 @@
   <td><%= demand.subject %></td>
   <td><%= demand.level %></td>
   <td><%= demand.user.phone %></td>
-  <td><%= demand.status %></td>
   <td>
-    <span>
-      <%= link_to admin_demand_path(demand), {remote: true, data:{toggle: "modal"}, data: {target: "#modal-window"}, class: "book-btn"} do %>
-      <i class="fa fa-eye"></i>
-      <% end %>
-    </span>
+    <% if demand.pending?%>
+      <p class="status-pending">Đang chờ phê duyệt</p>
+    <% elsif demand.approved? %>
+      <p class="status-approved">Đã phê duyệt</p>
+    <% else %>
+      <p class="status-unapproved">Không phê duyệt</p>
+    <% end %>
+  </td>
+  <td>
     <span>
       <%= link_to edit_admin_demand_path(demand), {remote: true, data:{toggle: "modal"}, data: {target: "#modal-window"}, class: "book-btn"} do %>
       <i class="fa fa-edit"></i>

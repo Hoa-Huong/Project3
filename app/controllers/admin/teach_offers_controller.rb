@@ -2,7 +2,11 @@ class Admin::TeachOffersController < AdminController
   before_action :find_teach_offer, only: %i(show update destroy)
 
   def index
-    @teach_offers = TeachOffer.all
+    if params[:status].present?
+      @teach_offers = TeachOffer.order("created_at DESC").where(status: params[:status]).page(params[:page]).per 10
+    else
+      @teach_offers = TeachOffer.order("created_at DESC").page(params[:page]).per 10
+    end
   end
 
   def show
@@ -26,6 +30,9 @@ class Admin::TeachOffersController < AdminController
       flash[:danger] = "Cập nhật không thành công!"
     end
     redirect_to admin_teach_offers_path
+    return unless params[:status] == "approved"
+
+    @teach_offer.demand.update! status: 1
   end
 
   private

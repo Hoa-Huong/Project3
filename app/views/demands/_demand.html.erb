@@ -1,15 +1,14 @@
-<div class="container">
 <div class="demand_item">
   <h1>
     <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 24px;color: #03ad03;margin-right: 2px;" title="Đã xác thực thông tin">
     </i>
     Tìm gia sư dạy <%= demand.subject %> <%= demand.level %>  <%= demand.address %>
   </h1>
-  <% if current_user.id == demand.user_id %>
+  <% if logged_in? && current_user.id == demand.user_id %>
     <%= link_to demand_path(demand), method: :delete, data: { confirm: "Bạn có chắc chắn muốn xóa?" }, remote: true, class: "close", aria:{label:"Close"} do %>
       <span aria-hidden="true">&times;</span>
     <% end %>
-  <%end%>
+  <% end %>
 
   <p class="create inline" style="padding-right: 20px;">
     <i class="fa fa-calendar"></i><%= demand.created_at.strftime("%H:%M, %d-%m-%Y")%></p>
@@ -18,9 +17,9 @@
       <div class="col-md-4 col-sm-4">
         <p class="no-padding">
           <i class="fa fa-bookmark"></i> Trạng thái: <span style="font-weight: bold; color: #ff961e; text-transform: uppercase;">
-            <% if demand.pending? %>
+            <% if demand.notfound? %>
             ĐANG TÌM GIA SƯ
-            <% else demand.approved? %>
+            <% else demand.found? %>
             ĐÃ TÌM THẤY GIA SƯ
             <% end %>
           </span>
@@ -59,4 +58,3 @@
       </div>
     </div>
   </div>
-</div>

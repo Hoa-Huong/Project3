@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_092322) do
     t.string "fee"
     t.text "note"
     t.integer "status", default: 0
+    t.integer "status_admin", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
